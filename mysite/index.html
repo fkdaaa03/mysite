@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Progate</title>
+    <link rel="stylesheet" href="stylesheet.css">
+  </head>
+  <body>
+    <h1>Gitでバージョン管理</h1>
+    <h2>ファイルを共有する。</h2>
+    <ol>
+      <li>「git init」</li>
+      <li>対象のディレクトリに移動する。</li>
+      <li>ファイルを変更して、共有する。「git add ファイル名」「git commit -m "メッセージ"」</li>
+      <li>リモートリポジトリ（共有ファイルの置き場）の準備。</li>
+      <li>リモートリポジトリの登録。 remote add リモートリポジトリ名(origin) URL」
+      </li>
+      <li>リモートリポジトリにファイルをアップロード（プッシュ）する。「git push origin master」</li>
+      <li>ファイルをダウンロード（プル）する。「git pull origin master」</li>
+    </ol>
+    <h2>共同開発で大切なこと。把握・選択</h2>
+    <ol>
+      <li>自分がどのファイルを変更したか把握する。「git status」。変更したファイル名は赤くなる。</li>
+      <li>自分が変更した部分の内容を把握する。「git giff」。変更前のコードが赤。変更後のコードが緑。</li>
+      <li>addしたファイルを確認する。「git status」addされたファイルは緑。addされてないファイルは赤。</li>
+    </ol>
+    <ul>
+      <li>修正内容のコミットメッセージはわかりやすく書く。「git commit -m "サブタイトルの色の修正"」とか</li>
+      <li>コミットメッセージを確認する。「git log」。</li>
+      <li>変更内容を確認する。「git log -p」</li>
+      <li>上下キーで表示範囲の変更。Qキーで終了。</li>
+    </ul>
+    <ul>
+      <li>リポジトリにアクセスするには、アクセストークンが必要。</li>
+      <li>GitHub「setting」「Developer setting」「Personal access tokens」「Generate new token」で発行する。
+      </li>
+      <li>
+        「git clone https://${アクセストークン}@${ユーザー名}/${リポジトリ名}.git」
+      <p>ただしこの方法でcloneしたリポジトリでNode.jsの npm init などを行って package.json を生成すると、リポジトリのURLにトークンが付与されてしまうので注意。そのままコミットするとトークンが漏洩するので除去すること。
+
+        リモートのURLはコマンド git remote set-url origin ${URL} で変更できる。変更結果はコマンド git remote -v で確認できる。</p>
+      </li>
+    </ul>
+  </body>
+</html>
